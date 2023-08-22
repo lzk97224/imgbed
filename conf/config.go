@@ -9,8 +9,10 @@ import (
 	"path/filepath"
 )
 
+// CF 配置信息
 var CF config
 
+// 配置信息的数据结构
 type config struct {
 	Qiniu struct {
 		AccessKey string `json:"accessKey"`

@@ -5,10 +5,10 @@ import (
 	"errors"
 	"fmt"
 	gitlab "github.com/xanzy/go-gitlab"
+	"imgbed/conf"
+	"imgbed/utils"
 	"log"
 	"os"
-	"qnimg/conf"
-	"qnimg/utils"
 	"time"
 )
 

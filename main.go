@@ -3,9 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
+	"imgbed/gitlab"
+	"imgbed/qiniu"
 	"log"
-	"qnimg/gitlab"
-	"qnimg/qiniu"
 	"sync"
 	"time"
 )

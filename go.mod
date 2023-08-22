@@ -1,4 +1,4 @@
-module qnimg
+module imgbed
 
 go 1.20
 

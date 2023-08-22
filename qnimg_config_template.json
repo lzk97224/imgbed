@@ -1,0 +1,13 @@
+{
+    "qiniu": {
+        "accessKey": "accessKey",
+        "secretKey": "secretKey",
+        "bucket": "bucket"
+    },
+    "gitlab": {
+        "privateToken": "privateToken",
+        "userName": "userName",
+        "projectName": "projectName",
+        "branch": "branch"
+    }
+}

@@ -52,11 +52,11 @@ func init() {
 	cmdDir := filepath.Dir(cmdAbsPath)
 
 	configFiles := []string{
-		"./qnimg_config.json",
-		cmdDir + "/qnimg_config.json",
-		homeDir + "/qnimg_config.json",
-		homeDir + "/go/bin/qnimg_config.json",
-		userConfigDir + "/qnimg_config.json",
+		"./imgbed_config.json",
+		cmdDir + "/imgbed_config.json",
+		homeDir + "/imgbed_config.json",
+		homeDir + "/go/bin/imgbed_config.json",
+		userConfigDir + "/imgbed_config.json",
 	}
 
 	for _, fileName := range configFiles {

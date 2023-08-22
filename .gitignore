@@ -24,4 +24,4 @@ go.work
 qnimg
 .idea
 go.sum
-qnimg_config.json
+imgbed_config.json

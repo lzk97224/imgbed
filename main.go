@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"imgbed/conf"
 	"imgbed/gitlab"
 	"imgbed/qiniu"
 	"log"
@@ -34,18 +35,23 @@ func upload() {
 	}
 
 	var errQiniu error
-	waitG.Add(1)
-	go func() {
-		defer waitG.Done()
-		_, errQiniu = qiniu.Upload(now, upFileList)
-	}()
-
 	var errGitlab error
-	waitG.Add(1)
-	go func() {
-		defer waitG.Done()
-		urls, errGitlab = gitlab.Upload(now, upFileList)
-	}()
+
+	if len(conf.CF.Qiniu.AccessKey) > 1 {
+		waitG.Add(1)
+		go func() {
+			defer waitG.Done()
+			_, errQiniu = qiniu.Upload(now, upFileList)
+		}()
+	}
+
+	if len(conf.CF.Gitlab.ProjectName) > 1 {
+		waitG.Add(1)
+		go func() {
+			defer waitG.Done()
+			urls, errGitlab = gitlab.Upload(now, upFileList)
+		}()
+	}
 
 	waitG.Wait()
 

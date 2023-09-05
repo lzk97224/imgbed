@@ -6,6 +6,7 @@ import (
 	"imgbed/conf"
 	"imgbed/gitlab"
 	"imgbed/qiniu"
+	"imgbed/utils"
 	"log"
 	"sync"
 	"time"
@@ -32,6 +33,11 @@ func upload() {
 	upFileList := flag.Args()
 	if len(upFileList) <= 0 {
 		log.Panic("上传文件不存在")
+	}
+
+	err := utils.AllCompression(upFileList)
+	if err != nil {
+		log.Panic("文件压缩是吧")
 	}
 
 	var errQiniu error

@@ -55,13 +55,13 @@ func ImgCompression(s string, d string) error {
 	}
 
 	if format == "png" {
-		cmd := exec.Command("pngquant", "--force", "--skip-if-larger", s, "-o", d)
+		cmd := exec.Command("/Users/lizhikui/go/bin/pngquant", "--force", "--skip-if-larger", s, "-o", d)
 		err := cmd.Start()
 		if err != nil {
 			return err
 		}
 		err = cmd.Wait()
-		if err != nil {
+		if err != nil && err.Error() != "exit status 98" {
 			return err
 		}
 	} else if format == "jpeg" {

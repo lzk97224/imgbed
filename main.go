@@ -37,7 +37,7 @@ func upload() {
 
 	err := utils.AllCompression(upFileList)
 	if err != nil {
-		log.Panic("文件压缩是吧")
+		log.Panic("文件压缩是吧", err)
 	}
 
 	var errQiniu error

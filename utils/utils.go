@@ -51,11 +51,11 @@ func init() {
 		log.Fatal("环境变量不存在")
 	}
 
-	pngquantPath = gopath + "/bin/" + "pngquant"
+	pngquantPath = gopath + "/bin/" + "pngquant.exe"
 
 	_, err := os.Stat(pngquantPath)
 	if err == nil {
-		//fmt.Println("文件已经存在")
+		//fmt.Println("文件已经存在", pngquantPath)
 		return
 	}
 
@@ -67,7 +67,7 @@ func init() {
 		}
 	}
 
-	pngquantExe, err := os.OpenFile(pngquantPath, os.O_CREATE, 0666)
+	pngquantExe, err := os.OpenFile(pngquantPath, os.O_CREATE, 0777)
 	if err != nil {
 		log.Fatal("压缩工具复制失败", err)
 	}
